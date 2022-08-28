@@ -13,6 +13,7 @@ class Game
   def normalize_letter(letter)
     return 'E' if letter == 'Ё'
     return 'И' if letter == 'Й'
+
     letter
   end
 
@@ -21,13 +22,12 @@ class Game
   end
 
   def try!(letter)
-    unless over? || @user_guesses.include?(normalize_letter(letter))
-      @user_guesses << normalize_letter(letter)
-    end
+    return @user_guesses << normalize_letter(letter) unless
+      over? || @user_guesses.include?(normalize_letter(letter)) || normalize_letter(letter).strip.empty?
   end
 
   def unguessed_letters
-    result = @letters.map { |letter| letter if @user_guesses.include?(normalize_letter(letter)) }
+    @letters.map { |letter| letter if @user_guesses.include?(normalize_letter(letter)) }
   end
 
   def word
@@ -46,7 +46,7 @@ class Game
     (normalized_letters - @user_guesses).empty?
   end
 
-  def lost? 
-    attempts_left == 0
+  def lost?
+    attempts_left.zero?
   end
 end

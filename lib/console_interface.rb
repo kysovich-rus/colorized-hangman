@@ -7,23 +7,28 @@ class ConsoleInterface
 
   def draw
     puts <<~GAME_SCREEN
-    
+
       Слово: #{show_word}
       #{figure}
+    GAME_SCREEN
+      .colorize(:yellow)
+
+    puts <<~ERROR_MSG
       Ошибки (#{@game.wrongs.size}): #{show_wrongs}
       Осталось ошибок: #{@game.attempts_left}
 
-    GAME_SCREEN
+    ERROR_MSG
+      .colorize(:red)
 
     if @game.won?
-      puts 'Победа!'
+      puts 'Победа!'.colorize(:light_green)
     elsif @game.lost?
-      puts "Помянем молодого, словом было #{@game.word}"
+      puts "Помянем молодого, словом было #{@game.word}".colorize(:red)
     end
   end
 
   def get_input
-    print 'Введите букву: '
+    print 'Введите букву: '.colorize(:blue)
     $stdin.gets[0].upcase
   end
 

@@ -10,6 +10,7 @@ Requirements:
 2. Type in console (cmd/bash etc.) in app directory):
 
 ```bundle install``` to receive required gems
+
 ```ruby main.rb``` to launch
 
 # Data storage

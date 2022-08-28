@@ -6,11 +6,12 @@ if Gem.win_platform?
     io.set_encoding(Encoding.default_external, Encoding.default_internal)
   end
 end
+
 require_relative 'lib/console_interface'
 require_relative 'lib/game'
 require 'colorize'
 
-puts <<~INTRO
+puts <<~INTRO.colorize(:green)
 
     Однажды в далеком королевстве жил-был король, бла-бла-бла...
   Сразу к делу: его величество Тимлид I приговорил вас к смерти за пренебрежение кодинг-стайлом
@@ -20,7 +21,6 @@ puts <<~INTRO
   Удачи!
 
 INTRO
-  .colorize(:green)
 
 word = File.readlines("#{__dir__}/data/words.txt", encoding: 'UTF-8', chomp: true).sample
 

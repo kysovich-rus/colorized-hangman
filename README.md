@@ -1,17 +1,21 @@
-# hangman-word-game
-Simple word-guessing game. Try to guess a word or "die" trying.
+# Виселица
+Простая игра на угадывание слов. Угадай или умри :)
 
-Requirements:
-- Ruby interpreter (v.3.0.1+ recommended)
-- Colorized (installed with bundler)
+Требования:
+- Интерпретатор Ruby (v.3.0.1+)
+- Colorized (устанавливается при помощи bundler)
 
-# Installation & Launch
-1. Download and unpack game in any location you want on your disk.
-2. Type in console (cmd/bash etc.) in app directory):
+# Установка и запуск
+1. Загрузите архив и распакуйте его в любое удобное место на жестком диске
+2. Введите в консоль:
 
-```bundle install``` to receive required gems
-```ruby main.rb``` to launch
+```bundle install``` для получения требуемых гемов
+```bundle exec ruby main.rb``` для запуска
 
-# Data storage
-Words' library is stored in 'data/words.txt'
-While editing, remember to put ONE word per ONE line, no spaces, ending line is empty
+# Работа с хранилищем
+Слова хранятся в файле 'data/words.txt'
+Редактирование библиотеки слов производится, соблюдая правила:
+- 1 слово на строку
+- Не использовать пробелы
+- Слова пишутся ЗАГЛАВНЫМИ буквами
+- Последняя строка в файле - пустая

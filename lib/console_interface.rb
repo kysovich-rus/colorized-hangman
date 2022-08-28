@@ -6,19 +6,18 @@ class ConsoleInterface
   end
 
   def draw
-    puts <<~GAME_SCREEN
+    puts <<~GAME_SCREEN.colorize(:yellow)
 
       Слово: #{show_word}
       #{figure}
     GAME_SCREEN
-      .colorize(:yellow)
 
-    puts <<~ERROR_MSG
+    puts <<~ERROR_MSG.colorize(:red)
+
       Ошибки (#{@game.wrongs.size}): #{show_wrongs}
       Осталось ошибок: #{@game.attempts_left}
 
     ERROR_MSG
-      .colorize(:red)
 
     if @game.won?
       puts 'Победа!'.colorize(:light_green)
@@ -37,7 +36,7 @@ class ConsoleInterface
   end
 
   def show_word
-    @game.unguessed_letters.map{ |letter| letter || '_' }.join(' ')
+    @game.unguessed_letters.map { |letter| letter || '_' }.join(' ')
   end
 
   def show_wrongs

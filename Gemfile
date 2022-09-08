@@ -1,1 +1,3 @@
-gem "colorize"
+source 'https://rubygems.org'
+
+gem 'colorize'

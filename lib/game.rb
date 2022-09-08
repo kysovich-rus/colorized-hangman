@@ -24,6 +24,7 @@ class Game
   def try!(letter)
     unless over? || @user_guesses.include?(normalize_letter(letter)) || normalize_letter(letter).strip.empty?
       @user_guesses << normalize_letter(letter)
+    end
   end
 
   def unguessed_letters
